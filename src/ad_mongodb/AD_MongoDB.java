@@ -90,22 +90,22 @@ public class AD_MongoDB {
          updateObject.put("$set", newDocument);
          collection.updateOne(query2, updateObject);
         
-        //3.1
+         //3.1
+         BasicDBObject query2 = new BasicDBObject();
+         query2.put("_id", "p2");
+         BasicDBObject newDocument = new BasicDBObject();
+         BasicDBObject updateObject = new BasicDBObject();
+         updateObject.put("$set", newDocument);
+         collection.updateOne(query2, Updates.inc("cantidade",7));
+        
+        
+        //3.2
         BasicDBObject query2 = new BasicDBObject();
         query2.put("_id", "p2");
-        BasicDBObject newDocument = new BasicDBObject();
         BasicDBObject updateObject = new BasicDBObject();
-        updateObject.put("$set", newDocument);
-        collection.updateOne(query2, Updates.inc("cantidade",7));
-         
-         //3.2
-        BasicDBObject query2 = new BasicDBObject();
-        query2.put("_id", "p2");
-        BasicDBObject newDocument = new BasicDBObject();
-        BasicDBObject updateObject = new BasicDBObject();
-        updateObject.put("$inc", 7);
+        updateObject.put("$inc", new BasicDBObject("cantidade", 7.0));
         collection.updateOne(query2, updateObject);
-*/
+ */
         /*
          //4. amosar o documento correspondente ao pedido p3
          //CONSULTA: db.pedidos.find({"_id":"p3"})
